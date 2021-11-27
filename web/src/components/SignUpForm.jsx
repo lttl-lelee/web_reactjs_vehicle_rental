@@ -49,13 +49,9 @@ const SignUpForm = (props) => {
       onSubmit={(values) => {
         setStatus("loading");
         console.log(values);
-        UserApi.signup({
-          email: values.email,
-          password: values.password,
-          fullName: values.fullName,
-          phone:values.phone
-        })
+        UserApi.signup(values)
           .then((res) => {
+            console.log(res);
             store.dispatch(login(res));
             handleClose();
             setStatus(0);
@@ -65,8 +61,9 @@ const SignUpForm = (props) => {
             //   sessionStorage.setItem("jwtCode", jwtCode);
             // });
           })
-          .catch(() => { 
-            setStatus("badRequest");
+          .catch((res) => { 
+            console.log(res);
+            // setStatus("badRequest");
           });
       }}
     >
