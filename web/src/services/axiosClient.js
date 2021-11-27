@@ -16,7 +16,7 @@ const axiosClient = axios.create({
   baseURL: "http://127.0.0.1:8000/api",
   headers: {
     "Content-Type": "application/json; charset=utf-8",
-    Authorization: `Bearer 4|gN3gw88fRFPDnkkbrEVMwJhPv8Yj8xk9BvJuieQX`
+    Authorization: `Bearer`
   },
   paramsSerializer: params => queryString.stringify(params),
 });
@@ -45,16 +45,16 @@ axiosClient.interceptors.response.use(
     // Do something with response error
     // console.log("Lỗi lấy từ Axios: ", error.response);
     const { config, status, data } = error.response;
-    if (config.url === "api/auth/login" && status === 400) {
+    if (config.url === "api/login" && status === 400) {
       const errorMessage = data.error || {};
       throw new Error(errorMessage);
     }
-    if (config.url === "api/auth/login" && status === 419) {
+    if (config.url === "api/login" && status === 419) {
       const errorMessage = data.error || {};
       
       throw new Error(errorMessage);
     }
-    if (config.url === "api/auth/register" && status === 403) {
+    if (config.url === "api/register" && status === 403) {
       const listData = data.error || {};
       const listError = listData.email || {};
       const errorMessage = listError.length > 0 ? listError[0] : [];
