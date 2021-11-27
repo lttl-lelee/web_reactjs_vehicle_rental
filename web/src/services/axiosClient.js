@@ -16,7 +16,7 @@ const axiosClient = axios.create({
   baseURL: "http://127.0.0.1:8000/api",
   headers: {
     "Content-Type": "application/json; charset=utf-8",
-    Authorization: `Bearer`
+    Authorization: "Bearer " + "1|Wfy6YpT7pwk5QOo63HAqQLtUeG0viVazremIikOc" 
   },
   paramsSerializer: params => queryString.stringify(params),
 });
