@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->integer('banned')->default(0);
             $table->date('dob')->nullable();
             $table->string('email')->unique();
-            $table->string('full_name')->nullable();
+            $table->string('fullName')->nullable();
             $table->char('gender', 2)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
