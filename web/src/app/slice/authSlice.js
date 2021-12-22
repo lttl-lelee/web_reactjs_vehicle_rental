@@ -16,6 +16,7 @@ export const login = createAsyncThunk(
   "auth/login",
   async (payload, { rejectWithValue }) => {
     try {
+      console.log(payload);
       // Gọi API đăng nhập
       const response = await authAPI.login(payload);
       console.log(response);

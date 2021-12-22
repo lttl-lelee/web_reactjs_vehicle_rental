@@ -1,15 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; 
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
-        $bookings = Booking::all(); //all là lấy ra tất cả booking , còn nhiều cái khác nữa, where, find,...
+        $user = $request->user();
+        $bookings = Booking::with(['vehicle','vehicle.category'])->where('id', $user->id)->get();
+        return response()->json($bookings);
+    }
+
+    public function GetBooking(Request $request, $id)
+    {
+        // $user = $request->user();
+        $bookings = Booking::with(['vehicle','vehicle.category'])->where('id', $id)->get();
         return response()->json($bookings);
     }
 }

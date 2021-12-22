@@ -1,4 +1,7 @@
 import axiosClient from "../services/axiosClient";
+import axios from "axios";
+
+const urlAPI = 'http://127.0.0.1:8000/api';
 
 const vehicleApi = {
     createCar: function (data) {
@@ -22,7 +25,7 @@ const vehicleApi = {
         return axiosClient.get(url);
     },
     getVehicle: function (params) {
-        const url = '/Vehicle';
+        const url = '/getVehicle';
         return axiosClient.get(url, { params });
     },
     getCarDriver: function () {
@@ -32,6 +35,12 @@ const vehicleApi = {
     getCarSelfDriver: function (params) {
         const url = '/CarSelfDriver';
         return axiosClient.get(url, { params });
+    //     return newPro
+    //     axios.get(`${urlAPI}/CarSelfDriver`)
+    //   .then(res => {
+    //    console.log(res);
+    //   })
+    //   .catch(error => console.log(error));
     },
     getBikes: function (params) {
         const url = '/Bikes';
@@ -60,7 +69,6 @@ const vehicleApi = {
             }
         });
     },
-
 
 }
 export default vehicleApi;

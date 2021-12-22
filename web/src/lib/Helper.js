@@ -23,7 +23,8 @@ export function noComma(number) {
     return parseInt(number);
 }
 export function formatDateTime(date, isTime = true) {
-    let d = new Date(date);
+    let d = new Date("05/06/2021");
+
     if (isTime) {
         return new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).format(d)
     } else {

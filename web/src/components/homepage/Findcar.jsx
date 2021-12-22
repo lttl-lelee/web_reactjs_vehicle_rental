@@ -7,6 +7,7 @@ import {
   Button,
   Nav,
   Tab,
+  Tabs,
   Container,
 } from "react-bootstrap";
 import { BsSearch } from "react-icons/all";
@@ -47,9 +48,9 @@ export default function Findcar() {
     // } else {
     //   alert("Vui lòng nhập địa chỉ tìm kiếm!");
     // }
-    store.dispatch(search(SearchCar));
+
+    store.dispatch(search('car'));
     history.push("/find");
-    // history.push("/find");
   };
   const getLocalStart = (data) => {
     setSearchCar((state) => ({ ...state, startLocal: data }));
@@ -64,6 +65,7 @@ export default function Findcar() {
     }));
   };
   const handleStartDate = (evt) => {
+    console.log(evt);
     setSearchCar((state) => ({
       ...state,
       startDate: evt.target.value,
@@ -102,7 +104,7 @@ export default function Findcar() {
                   }
                   className={SearchCar.type === "bike" ? "active" : null}
                 >
-                  <i class="ict ict-bike d-none d-sm-inline-block"></i>
+                  <i className="ict ict-bike d-none d-sm-inline-block"></i>
                   <div>Xe máy</div>
                 </Nav.Link>
               </Nav.Item>
@@ -113,7 +115,7 @@ export default function Findcar() {
                     setSearchCar((state) => ({ ...state, type: "car" }))
                   }
                 >
-                  <i class="ict ict-selfdrive d-none d-sm-inline-block"></i>
+                  <i className="ict ict-selfdrive d-none d-sm-inline-block"></i>
                   <div>Ô tô tự lái</div>
                 </Nav.Link>
               </Nav.Item>
@@ -124,7 +126,7 @@ export default function Findcar() {
                     setSearchCar((state) => ({ ...state, type: "driver" }))
                   }
                 >
-                  <i class="ict ict-withdriver d-none d-sm-inline-block"></i>
+                  <i className="ict ict-withdriver d-none d-sm-inline-block"></i>
                   <div>Ô tô có tài xế</div>
                 </Nav.Link>
               </Nav.Item>

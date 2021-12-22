@@ -11,7 +11,7 @@ const ItemMyBooking = (props) => {
   return (
     <div className="booking__item">
       <Link className="link--text" to={`booking?id=${booking.id}`}>
-        <h4>{booking.vehicle.model.name}</h4>
+        <h4>{booking.vehicle.category.name}</h4>
         <div className="booking__item--container">
           <div className="booking__item--img">
             <div className="image-wrapper">

@@ -31,24 +31,29 @@ export default function GoogleMaps(props) {
   const [inputValue, setInputValue] = React.useState("");
   const [options, setOptions] = React.useState([]);
   const loaded = React.useRef(false);
-  if (typeof window !== 'undefined' && !loaded.current) {
-      if (!document.querySelector('#google-maps')) {
-          loadScript(
-              'https://maps.googleapis.com/maps/api/js?key=AIzaSyANo5lGD3FH8oiGfqqaVw_tRRyw-qoGCT8&libraries=places',
-              document.querySelector('head'),
-              'google-maps',
-          );
-      }
+  const GGAPI = async () => {
+    if (typeof window !== 'undefined' && !loaded.current) {
+      // if (!document.querySelector('#google-maps')) {
+      //     loadScript(
+      //         'https://maps.googleapis.com/maps/api/js?key=AIzaSyANo5lGD3FH8oiGfqqaVw_tRRyw-qoGCT8&libraries=places',
+      //         document.querySelector('head'),
+      //         'google-maps',
+      //     );
+      // }
       loaded.current = true;
   }
+  }
+  
   const fetch = React.useMemo(
     () =>
       throttle((request, callback) => {
+        
         autocompleteService.current.getPlacePredictions(request, callback);
       }, 200),
     []
   );
   React.useEffect(() => {
+    GGAPI();
     let active = true;
     if (!autocompleteService.current && window.google) {
       autocompleteService.current =

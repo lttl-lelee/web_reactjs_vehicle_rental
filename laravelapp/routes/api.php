@@ -23,17 +23,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/getInfo', [AuthController::class,'show']);
+    Route::get('/getMyBooking', [BookingController::class,'show']);
+    Route::get('/getMyRequestBooking', [BookingController::class,'show']);
     //cần login mới cho xem, thì để trong này, ví dụ: xem profile, edit,.. 
 });
-
+Route::get('/getBooking/{id}', [BookingController::class, 'GetBooking']);
 
 Route::post('login', [AuthController::class,'login']);
 Route::post('signup', [AuthController::class,'register']);
 
-Route::get('/getVehicle', [VehicleController::class,'show']);
-Route::get('/getBooking', [BookingController::class,'show']);
+Route::get('/CarSelfDriver', [VehicleController::class,'show']);
+// Route::get('/getBooking', [BookingController::class,'show']);
 Route::get('/Bikes', [VehicleController::class,'show_bikes']);
-//xài ké controler của nhau thoải mái.
 
 Route::get('/getNoti', function () {
     return  response()->json("");
