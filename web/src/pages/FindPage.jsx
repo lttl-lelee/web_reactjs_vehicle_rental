@@ -92,18 +92,17 @@ export default function FindPage() {
     }
     setAfterFilter(list);
   };
-  var rslist=[];
   useEffect(() => {
     const runEffect = async () => {
-      rslist= await getListVehicles(searchInput);
-      console.log(searchInput.type);
+      const rslist= await getListVehicles(searchInput.type);
+      //console.log(searchInput.type);
+      // @ts-ignore
       console.log("kqtimkiem:",rslist);
       // const list = await getListVehicles('car');
       // console.log(list);
       // console.log(getListLocation(list));
-      setListVehicle(rslist);
+      setListVehicle(rslist.data);
       // setListLocationVehicle(getListLocation(list));
-      console.log("abd:",listVehicle);
     };
     runEffect();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -269,14 +268,13 @@ export default function FindPage() {
                 </Button>
               </Form>
             </Col>
-            {console.log("ầdfad",rslist)}
             <Col className="find__content-items" lg={8}>
               <Row className="items position-relative">
                 {/* {status === "loading" ? (
                   <Loading type="inline" />
                 ) :  */}
-                {rslist.length > 0 ? (
-                  rslist.map((item, index) => {
+                {listVehicle.length > 0 ? (
+                  listVehicle.map((item, index) => {
                     return (
                       <ItemFind
                         key={index}

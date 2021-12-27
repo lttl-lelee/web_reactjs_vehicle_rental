@@ -8,39 +8,39 @@ import StarRatings from "react-star-ratings";
 
 const ItemFind = (props) => {
   const data = props.data;
-  const vehicle = data.vehicle;
+  const vehicle = data;
   const type = props.type;
   const url = type === "bike" ? "/bike" : type === "car" ? "car" : "withdriver";
-  const rates = vehicle.rating || [];
-  const totalRate = rates.reduce((ini, item) => {
-    return ini + item.numStar;
-  }, 0);
-  let numRate = 0;
-  if (rates.length) {
-    numRate = totalRate / rates.length;
-  }
+  // const rates = vehicle?.rating || [];
+  // const totalRate = rates.reduce((ini, item) => {
+  //   return ini + item.numStar;
+  // }, 0);
+  let numRate = 5;
+  // if (rates.length) {
+  //   numRate = totalRate / rates.length;
+  // }
   return (
     <>
       <Col className="item" lg={6}>
-        <Link to={url + `?id=${vehicle.id}`}>
+        <Link to={url + `?id=${vehicle?.id}`}>
           <div className="item__img">
             <div className="item__img-main">
-              <img src={vehicle.mainImg} alt=""></img>
+              <img src={vehicle?.mainImg} alt="" />
             </div>
             <div className="item__img-infor">
-              {vehicle.driver ? (
+              {vehicle?.driver ? (
                 <div className="item__img-infor-price">
-                  {formatMoneyK(Math.round(4*vehicle.originPrice/6000)*1000)}
+                  {formatMoneyK(Math.round(4*vehicle?.origin_price/6000)*1000)}
                 </div>
               ) : (
                 <div className="item__img-infor-price">
-                  {formatMoneyK(vehicle.originPrice)}
+                  {formatMoneyK(vehicle?.origin_price)}
                 </div>
               )}
             </div>
           </div>
           <div className="item__decs">
-            <h2>{vehicle.model.name}</h2>
+            <h2>{vehicle?.category.name}</h2>
             <div className="item__decs--rating">
               <div className="d-inline-block">
                 <StarRatings
@@ -51,17 +51,17 @@ const ItemFind = (props) => {
                   starSpacing="1px"
                 />
               </div>
-              <span> • {vehicle.numBooking} chuyến</span>
-              <span> ∼ {data.dis}</span>
+              <span> • 10 chuyến</span>
+              <span> ∼ {data.dis}7.2km</span>
             </div>
             <div className="item__decs--auto">
               {type === "bike" ? (
-                <span>{vehicle.bikeType}</span>
+                <span>{vehicle?.bikeType}</span>
               ) : (
-                <span>{vehicle.transmission}</span>
+                <span>{vehicle?.transmission}</span>
               )}
             </div>
-            {vehicle.deliveryEnable ? (
+            {vehicle?.discount_enable ? (
               <div className="item__decs--auto">
                 <span>Giao xe tận nơi</span>
               </div>
@@ -70,7 +70,7 @@ const ItemFind = (props) => {
               <div className="item__decs-local-icon">
                 <GrLocation />
               </div>
-              <span>{data.des}</span>
+              <span>{vehicle?.location.str_address}</span>
             </div>
           </div>
         </Link>

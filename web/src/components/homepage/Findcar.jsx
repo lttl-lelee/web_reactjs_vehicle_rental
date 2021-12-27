@@ -49,7 +49,7 @@ export default function Findcar() {
     //   alert("Vui lòng nhập địa chỉ tìm kiếm!");
     // }
 
-    store.dispatch(search('car'));
+    store.dispatch(search(SearchCar));
     history.push("/find");
   };
   const getLocalStart = (data) => {
