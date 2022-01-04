@@ -85,11 +85,11 @@ const registerSlice = createSlice({
                 state.error = state.error.filter((item) => { return item !== "originPrice" });
             }
         },
-        // changeData: (state, action) => {
-        //     const name = action.payload.name;
-        //     const data = action.payload.data;
-        //     state.data.[name] = data;
-        // },
+        changeData: (state, action) => {
+            const name = action.payload.name;
+            const data = action.payload.data;
+            state.data.name = data;
+        },
         addImage: (state, action) => {
             state.images.push(action.payload);
         },

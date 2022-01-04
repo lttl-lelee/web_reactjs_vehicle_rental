@@ -42,6 +42,7 @@ export default function RegisterVehicleFirst() {
     store.dispatch(changeData({ name: "fuelType", data: evt.target.value }));
   };
   const handleChangeYom = (evt) => {
+    console.log(evt.target.value);
     store.dispatch(changeData({ name: "yom", data: evt.target.value }));
   };
   const handleChangeBikeType = (evt) => {
@@ -93,7 +94,8 @@ export default function RegisterVehicleFirst() {
     const item = brands.filter((item) => {
       return +item.id === +id;
     });
-    setModels(item[0].models);
+    // console.log(item);
+    setModels(item[0].category);
   };
   const handleChangeType = (evt) => {
     const type = evt.target.value;
@@ -102,7 +104,7 @@ export default function RegisterVehicleFirst() {
   };
   useEffect(() => {
     vehicleApi.getBrands().then((res) => {
-      setBrands(res);
+      setBrands(res.data);
     });
   }, []);
   return (
@@ -229,7 +231,7 @@ export default function RegisterVehicleFirst() {
                               {register.type === "bike"
                                 ? brands
                                     .filter((item) => {
-                                      return item.bikeProduction;
+                                      return item.bike_production;
                                     })
                                     .map((item, index) => {
                                       return (
@@ -240,7 +242,7 @@ export default function RegisterVehicleFirst() {
                                     })
                                 : brands
                                     .filter((item) => {
-                                      return item.carProduction;
+                                      return item.car_production;
                                     })
                                     .map((item, index) => {
                                       return (
@@ -267,7 +269,7 @@ export default function RegisterVehicleFirst() {
                               {register.type === "bike"
                                 ? models
                                     .filter((item) => {
-                                      return !item.carProduction;
+                                      return !item.car_production;
                                     })
                                     .map((item, index) => {
                                       return (
@@ -278,7 +280,7 @@ export default function RegisterVehicleFirst() {
                                     })
                                 : models
                                     .filter((item) => {
-                                      return item.carProduction;
+                                      return item.car_production;
                                     })
                                     .map((item, index) => {
                                       return (

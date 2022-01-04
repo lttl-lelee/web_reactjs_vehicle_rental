@@ -17,7 +17,8 @@ export default function MyVehiclesPage() {
 
   useEffect(() => {
     vehicleApi.getMyVehicles().then((res) => {
-      setVehicles(res);
+      //console.log(res);
+      setVehicles(res.data);
       setStatus("idle");
     });
   }, []);
@@ -93,7 +94,7 @@ export default function MyVehiclesPage() {
                     <>
                       {vehicles
                         .filter((item) => {
-                          return item.actived === true;
+                          return item.actived === 1;
                         })
                         .map((item, index) => {
                           return <ItemMyVehicle key={index} item={item} />;
@@ -103,7 +104,7 @@ export default function MyVehiclesPage() {
                     <>
                       {vehicles
                         .filter((item) => {
-                          return item.actived === false;
+                          return item.actived === 0;
                         })
                         .map((item, index) => {
                           return <ItemMyVehicle key={index} item={item} />;

@@ -26,16 +26,24 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/getMyBooking', [BookingController::class,'show']);
     Route::get('/getMyRequestBooking', [BookingController::class,'show']);
     //cần login mới cho xem, thì để trong này, ví dụ: xem profile, edit,.. 
+
+    Route::post('/register/car', [VehicleController::class,'register_car']);
+    Route::get('/MyVehicles', [VehicleController::class,'MyVehicles']);
+    Route::post('/register/bike', [VehicleController::class,'register_bike']);
+
 });
 Route::get('/getBooking/{id}', [BookingController::class, 'GetBooking']);
 
 Route::post('login', [AuthController::class,'login']);
 Route::post('signup', [AuthController::class,'register']);
 
-Route::get('/CarSelfDriver', [VehicleController::class,'show']);
+Route::get('/CarSelfDriver', [VehicleController::class,'car']);
+Route::get('/CarsDriver', [VehicleController::class,'driver']);
 // Route::get('/getBooking', [BookingController::class,'show']);
-Route::get('/Bikes', [VehicleController::class,'show_bikes']);
+Route::get('/Bikes', [VehicleController::class,'bike']);
 
 Route::get('/getNoti', function () {
     return  response()->json("");
 });
+
+Route::get('/getBrands', [VehicleController::class, 'getBrands']);

@@ -13,10 +13,10 @@ export default function ItemMyVehicle(props) {
   const totalRate = rates.reduce((ini, item) => {
     return ini + item.numStar;
   }, 0);
-  let numRate = 0;
-  if (rates.length) {
-    numRate = totalRate / rates.length;
-  }
+  let numRate = 4.5;
+  // if (rates.length) {
+  //   numRate = totalRate / rates.length;
+  // }
   return (
     <>
       <Row className="item-vehicle mb-3">
@@ -35,7 +35,7 @@ export default function ItemMyVehicle(props) {
         <Col lg={6}>
           <div className="content-item">
             <div className="content-item-desc">
-              <div className="name-vehicle">{vehicle.model.name}</div>
+              <div className="name-vehicle">{vehicle.category.name}</div>
               <div className="content-item-rating">
                 <div className="content-item-rating-star">
                   <StarRatings
@@ -46,12 +46,12 @@ export default function ItemMyVehicle(props) {
                     starSpacing="1px"
                   />
                 </div>
-                <span>• {vehicle.numBooking} chuyến</span>
+                <span>• {vehicle.numBooking}10 chuyến</span>
               </div>
               <div className="content-item-price">
                 <span>Giá thuê: </span>
                 <span className="price">
-                  {formatMoneyK(vehicle.originPrice)}
+                  {formatMoneyK(vehicle.origin_price)}
                 </span>
               </div>
               <div className="content-item-local">
@@ -59,7 +59,7 @@ export default function ItemMyVehicle(props) {
                   <i className="icon-local">
                     <GrLocation />
                   </i>
-                  {vehicle.location.strAddress}
+                  {vehicle.location_one.str_address}
                 </span>
               </div>
             </div>
