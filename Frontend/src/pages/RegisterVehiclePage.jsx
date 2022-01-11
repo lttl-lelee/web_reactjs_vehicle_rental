@@ -48,6 +48,7 @@ export default function RegisterVehiclePage(props) {
       if (error.length) {
         store.dispatch(validate(error));
       } else {
+        
         setPage(page + 1);
       }
     }
@@ -95,6 +96,8 @@ export default function RegisterVehiclePage(props) {
     }
   };
         // eslint-disable-next-line default-case
+
+        
         switch (page) {
           case 1:
             return (
@@ -170,3 +173,4 @@ export default function RegisterVehiclePage(props) {
             );
         }
       }
+

@@ -17,7 +17,7 @@ class Booking extends Model
 
     public function vehicle()
     {
-        //cái này để khi lấy ra, $booking->user thì sẽ lấy được ra ai đã boooing luôn,
+        //cái này để khi lấy ra, $booking->user thì sẽ lấy được ra ai đã booking luôn,
         return $this->belongsTo(Vehicle::class,'vehicle_id');
     }
 }

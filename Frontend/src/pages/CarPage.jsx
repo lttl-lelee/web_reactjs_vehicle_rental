@@ -30,15 +30,19 @@ export default function CarPage() {
     vehicleApi
       .getVehicle({ id: param.id })
       .then((res) => {
-        setCar(res.data);
-        setStatus("success");
+        if(res.data.length !=0){
+          setCar(res.data[0]);
+          setStatus("success");
+        }else{
+          console.log(res)
+        }
       })
       .catch((res) => {
         setStatus("error");
       });
-    vehicleApi.checkLiked({ id: param.id }).then((res) => {
-      setLike(res);
-    });
+    // vehicleApi.checkLiked({ id: param.id }).then((res) => {
+    //   setLike(res);
+    // });
   }, [param.id]);
   return (
     <div className="page-content">
@@ -46,12 +50,12 @@ export default function CarPage() {
         <Loading />
       ) : (
         <div className="vehicle">
-          <ImageSlide vehicle={car} />
+          {/* <ImageSlide vehicle={car} /> */}
           <Row className="vehicle__body container">
             <Col lg={7} className="vehicle__body-content order-2 order-lg-1">
               <Row>
                 <Col>
-                  <HeaderVehicle vehicle={car} className="d-none d-lg-block" />
+                  {/* <HeaderVehicle vehicle={car} className="d-none d-lg-block" /> */}
                 </Col>
                 <Col xs={4}>
                   {logged ? (
@@ -72,13 +76,13 @@ export default function CarPage() {
               <div className="desc">
                 <DescriptionVehicle vehicle={car} type="car" />
               </div>
-              <RatingVehicle vehicle={car} />
+              {/* <RatingVehicle vehicle={car} /> */}
             </Col>
             <Col
               lg={5}
               className="vehicle__body-sidebar order-1 order-lg-2 mt-5 mt-lg-0"
             >
-              <NoDriverSideBar vehicle={car} />
+              {/* <NoDriverSideBar vehicle={car} /> */}
             </Col>
           </Row>
         </div>

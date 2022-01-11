@@ -184,8 +184,17 @@ class VehicleController extends Controller
     public function MyVehicles(Request $request)
     {
         $user_id = $request->user()->id;
-        $vehicles = Vehicle::with(['location_one', 'category'])->where('user_id', $user_id)->get();
+        $vehicles = Vehicle::with(['location', 'category'])->where('user_id', $user_id)->get();
         return response()->json($vehicles);
+    }
+    public function getVehicle(Request $request)
+    {
+        $id = $request->id;
+        $vehicles = Vehicle::with(['users', 'location', 'category'])->where('id', $id)->get();
+        if($vehicles){
+            return response()->json($vehicles);
+        }
+        return response()->json(false);
     }
 
 }

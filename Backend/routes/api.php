@@ -30,9 +30,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/register/car', [VehicleController::class,'register_car']);
     Route::get('/MyVehicles', [VehicleController::class,'MyVehicles']);
     Route::post('/register/bike', [VehicleController::class,'register_bike']);
-
+    Route::get('/getVehicle', [VehicleController::class, 'getVehicle']);
+    Route::post('/uploadMultipleFiles', [MutiUpload::class,'uploadMultipleFiles']);
 });
 Route::get('/getBooking/{id}', [BookingController::class, 'GetBooking']);
+Route::get('/getVehicle', [VehicleController::class, 'getVehicle']);
 
 Route::post('login', [AuthController::class,'login']);
 Route::post('signup', [AuthController::class,'register']);

@@ -11,7 +11,8 @@ import { GrLocation } from "react-icons/gr";
 import GoogleMapReact from "google-map-react";
 function DescriptionVehicle(props) {
   const vehicle = props.vehicle;
-  const user = vehicle.user;
+  console.log(vehicle);
+  const user = vehicle.users;
   const type = props.type;
   return (
     <>
@@ -26,7 +27,7 @@ function DescriptionVehicle(props) {
                 <i id="icon-vehicle" style={{ top: "-21%" }}>
                   <GiGears />
                 </i>
-                Loại xe: {vehicle.bikeType}
+                Loại xe: {vehicle.type}
               </span>
             </Col>
             <Col lg={6}>
@@ -34,7 +35,7 @@ function DescriptionVehicle(props) {
                 <i id="icon-vehicle" style={{ top: "-10%" }}>
                   <GiFuelTank />
                 </i>
-                Nhiên liệu: {vehicle.fuelType}
+                Nhiên liệu: {vehicle.fuel_type}
               </span>
             </Col>
           </Row>
@@ -158,14 +159,14 @@ function DescriptionVehicle(props) {
         <Col lg={9} className="desc-content">
           <Row className="infor-owner">
             <Col xs={3} className="avatar-owner">
-              <img src={user.avatarLink} alt="" />
+              <img src={user.avatar_link} alt="" />
             </Col>
             <Col xs={9} className="status-owner">
               <a href="/account" id="owner-name">
                 <h4>{user.fullName}</h4>
               </a>
               <span className="star-ratings">
-                <StarRatings
+                {/* <StarRatings
                   rating={
                     user.ratedByOther.length
                       ? user.ratedByOther.reduce((ini, item) => {
@@ -177,12 +178,12 @@ function DescriptionVehicle(props) {
                   numberOfStars={5}
                   starDimension="20px"
                   starSpacing="1px"
-                />
+                /> */}
               </span>
               <div className="mt-3">SĐT: {user.phone}</div>
             </Col>
           </Row>
-          {user.responseRate.totalRequest?
+          {/* {user.responseRate.totalRequest?
             <>
               <div className="response-desc">
                 <p>Tỉ lệ phản hồi</p>
@@ -219,7 +220,7 @@ function DescriptionVehicle(props) {
                 </span>
               </div>
             </>:null
-          }
+          } */}
         </Col>
       </Row>
       <Row className="desc-item">
@@ -257,7 +258,7 @@ function DescriptionVehicle(props) {
             <i id="icon-vehicle" style={{ top: "-2px" }}>
               <GrLocation />
             </i>
-            {vehicle.location.strAddress}
+            {vehicle.location.str_address}
           </span>
         </Col>
       </Row>

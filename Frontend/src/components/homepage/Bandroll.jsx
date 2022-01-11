@@ -14,7 +14,7 @@ export default function BandRoll() {
                     <h2>Dịch vụ thuê xe chất lượng hàng đầu</h2>
                 </div>
             </div>
-            <div className="d-none d-lg-block mt-3">
+            {/* <div className="d-none d-lg-block mt-3">
                 <div className="bandrollImage">
                     <div className="bandrollImageShort">
                         <img src={banner1} alt="" />
@@ -29,7 +29,7 @@ export default function BandRoll() {
                         <div className="overlayRight"></div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
 
     )

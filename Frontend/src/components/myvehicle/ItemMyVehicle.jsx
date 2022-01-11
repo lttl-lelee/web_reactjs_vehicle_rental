@@ -59,7 +59,7 @@ export default function ItemMyVehicle(props) {
                   <i className="icon-local">
                     <GrLocation />
                   </i>
-                  {vehicle.location_one.str_address}
+                  {vehicle.location.str_address}
                 </span>
               </div>
             </div>

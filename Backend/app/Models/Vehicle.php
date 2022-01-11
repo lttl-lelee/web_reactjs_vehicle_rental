@@ -38,17 +38,12 @@ class Vehicle extends Model
 
     public function location()
     {
-        return $this->hasOne(Location::class, 'id');
+        return $this->belongsTo(location::class, 'location_id');
     }
 
     public function category()
     {
         //cái này để khi lấy ra, $booking->user thì sẽ lấy được ra ai đã boooing luôn,
         return $this->belongsTo(category::class, 'category_id');
-    }
-
-    public function location_one()
-    {
-        return $this->belongsTo(location::class, 'location_id');
     }
 }
