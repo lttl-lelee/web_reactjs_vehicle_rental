@@ -22,8 +22,8 @@ export default function GuideCarRental() {
           <p>Hướng dẫn thuê xe</p>
         </div>
         <Row className="content-guide" style={{ justifyItems: "center" }}>
-          {imageGuide.map((guide) => (
-            <Col lg={3} md={6} sm={12}>
+          {imageGuide.map((guide,index) => (
+            <Col lg={3} md={6} sm={12} key={index}>
               <Link
                 style={{ textDecoration: "none", color: "black" }}
                 to="/howitword"

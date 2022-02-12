@@ -16,7 +16,7 @@ const axiosClient = axios.create({
   baseURL: "http://127.0.0.1:8000/api",
   headers: {
     "Content-Type": "application/json; charset=utf-8",
-    Authorization: `Bearer`
+    Authorization: "Bearer " + "6|eFrlPo4Mv1LfVTsueehvgKTminzD06RAoEtq95qt" 
   },
   paramsSerializer: params => queryString.stringify(params),
 });
@@ -32,6 +32,7 @@ axiosClient.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
 
 // Add a response interceptor
 axiosClient.interceptors.response.use(

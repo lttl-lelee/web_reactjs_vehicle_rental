@@ -13,8 +13,9 @@ export default function MyTripsPage() {
   const [statusRequest, setStatusRequest] = useState("loading");
   useEffect(() => {
     bookingApi.getMyBooking().then((res) => {
-      setBooking(res);
-      setStatus("idle");
+      console.log(res);
+      // setBooking(res);
+      // setStatus("idle");
     });
     bookingApi.getMyRequestBooking().then((res) => {
       setRequestBooking(res);

@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function bookings()
+    {
+        //khi $user->bookings thì sẽ lấy ra tất cả boonking của user đó, dùng cái này rất tiện, ko cần join nhiều bảng với nhau phức tạp.
+        return $this->hasMany(Booking::class,'user_id');
+    }
 }

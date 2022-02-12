@@ -25,7 +25,10 @@ export default function FindPage() {
   const [listLocationVehicle, setListLocationVehicle] = useState([]);
   const [listVehicle, setListVehicle] = useState([]);
   const [range, setRange] = useState(1000000);
-  const handleRange = (evt) => {
+
+
+
+  const handleRange = (evt) => {   
     const value = evt.target.value;
     setRange(value);
     let list = [...resultSearch];
@@ -66,6 +69,7 @@ export default function FindPage() {
   };
   // @ts-ignore
   const searchInput = useSelector((state) => state.searched).data;
+  console.log("timkiem",searchInput);
   const handleSort = (evt) => {
     const type = evt.target.value;
     let list = [...afterFilter];
@@ -88,11 +92,18 @@ export default function FindPage() {
     }
     setAfterFilter(list);
   };
+  var rslist=[];
   useEffect(() => {
     const runEffect = async () => {
-      const list = await getListVehicles(searchInput.type);
-      setListVehicle(list);
-      setListLocationVehicle(getListLocation(list));
+      rslist= await getListVehicles(searchInput);
+      console.log(searchInput.type);
+      console.log("kqtimkiem:",rslist);
+      // const list = await getListVehicles('car');
+      // console.log(list);
+      // console.log(getListLocation(list));
+      setListVehicle(rslist);
+      // setListLocationVehicle(getListLocation(list));
+      console.log("abd:",listVehicle);
     };
     runEffect();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -101,24 +112,30 @@ export default function FindPage() {
   const url = "#";
   return (
     <>
-      {isFresh && searchInput?.startLocal !== "" && (
+    {/* {console.log(isFresh && searchInput?.startLocal !== "")} */}
+  
+      {/* {isFresh && searchInput?.startLocal !== "" && (
+
         <DistanceMatrixService
           options={{
             destinations: listLocationVehicle,
             origins: [searchInput.startLocal],
             travelMode: "DRIVING",
           }}
+          
           callback={(response) => {
+            console.log("Linh");
             if (response) {
               let rs = getListDistanceVehicles(response, listVehicle);
+             
               setResultSearch(rs);
               setAfterFilter(rs);
               setIsFresh(false);
               setStatus("idle");
             }
           }}
-        />
-      )}
+        /> 
+      )} */}
       <div id="find-page">
         <div className="find">
           <Row className="find__header">
@@ -252,12 +269,14 @@ export default function FindPage() {
                 </Button>
               </Form>
             </Col>
+            {console.log("ầdfad",rslist)}
             <Col className="find__content-items" lg={8}>
               <Row className="items position-relative">
-                {status === "loading" ? (
+                {/* {status === "loading" ? (
                   <Loading type="inline" />
-                ) : afterFilter.length > 0 ? (
-                  afterFilter.map((item, index) => {
+                ) :  */}
+                {rslist.length > 0 ? (
+                  rslist.map((item, index) => {
                     return (
                       <ItemFind
                         key={index}
@@ -296,38 +315,47 @@ async function getListVehicles(type) {
       listVehicle = await vehicleApi.getBikes();
       break;
   }
+
   return listVehicle;
 }
-function getListLocation(list) {
-  let rsLatLng = [];
-  if (list.length > 0) {
-    list.forEach((e) => {
-      let item = e.location.strAddress;
-      rsLatLng.push(item);
-    });
-  }
-  return rsLatLng;
-}
-function getListDistanceVehicles(response, listVehicles) {
-  let list = [];
-  let desList = response.destinationAddresses;
-  let oriList = response.originAddresses;
-  let num = desList.length;
-  let rowList = response.rows[0].elements;
-  for (let i = 0; i < num; i++) {
-    if (rowList[i].distance) {
-    }
-    if (rowList[i].distance && rowList[i].distance.value < 20000) {
-      let item = {
-        id: i,
-        des: desList[i],
-        ori: oriList[0],
-        dis: rowList[i].distance.text,
-        dur: rowList[i].duration.text,
-        vehicle: listVehicles[i],
-      };
-      list.push(item);
-    }
-  }
-  return list;
-}
+// function getListLocation(list) {
+//  //  console.log(list.data);
+//   var length = Object.keys(list).length;
+//   let rsLatLng = [];
+//   if (length > 0) {
+//     // for (let key in list) {
+//     //   console.log(key);
+//     //   let item = list[key].location[0].str_address;
+//     //   rsLatLng.push(item);
+//     // }
+//     list.data.forEach((e) => {
+//       let item = e.location.str_address;
+//       rsLatLng.push(item);
+//     });
+//   }
+//   // console.log(rsLatLng);
+//   return rsLatLng;
+// }
+// function getListDistanceVehicles(response, listVehicles) {
+//   let list = [];
+//   let desList = response.destinationAddresses;
+//   let oriList = response.originAddresses;
+//   let num = desList.length;
+//   let rowList = response.rows[0].elements;
+//   for (let i = 0; i < num; i++) {
+//     if (rowList[i].distance) {
+//     }
+//     if (rowList[i].distance && rowList[i].distance.value < 20000) {
+//       let item = {
+//         id: i,
+//         des: desList[i],
+//         ori: oriList[0],
+//         dis: rowList[i].distance.text,
+//         dur: rowList[i].duration.text,
+//         vehicle: listVehicles[i],
+//       };
+//       list.push(item);
+//     }
+//   }
+//   return list;
+// }

@@ -54,7 +54,7 @@ export default function AccountPage() {
   };
   useEffect(() => {
     userApi.getInfo().then((res) => {
-      console.log(res.data.phone);
+      console.log(res.data.fullName);
       // @ts-ignore
       setUser(res.data);
       setInfo({ fullName: res.data.fullName, dob: res.data.dob, gender: res.data.gender });

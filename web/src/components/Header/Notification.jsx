@@ -30,20 +30,20 @@ function Notification(props) {
     setShow(false);
   };
   useEffect(() => {
-    if (!listNoti.length) {
-      notiApi.getAllNoti().then((res) => {
-        setListNoti(res);
-      });
-    }
-    if (updateNoti) {
-      setUpdateNoti(false);
-      const interval = setInterval(() => {
-        notiApi.getAllNoti().then((res) => {
-          setListNoti(res);
-        });
-      }, 10000);
-      return  () => clearInterval(interval);
-    }
+    // if (!listNoti.length) {
+    //   notiApi.getAllNoti().then((res) => {
+    //     setListNoti(res);
+    //   });
+    // }
+    // if (updateNoti) {
+    //   setUpdateNoti(false);
+    //   const interval = setInterval(() => {
+    //     notiApi.getAllNoti().then((res) => {
+    //       setListNoti(res);
+    //     });
+    //   }, 10000);
+    //   return  () => clearInterval(interval);
+    // }
   }, []);
   return (
     <div ref={wrapperRef} className="me-2 nav-item dropdown">
