@@ -44,6 +44,11 @@ class Vehicle extends Model
     public function category()
     {
         //cái này để khi lấy ra, $booking->user thì sẽ lấy được ra ai đã boooing luôn,
-        return $this->belongsTo(category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function images() 
+    {
+        return $this->hasMany(Image::class,"vehicle_id", "id");
     }
 }

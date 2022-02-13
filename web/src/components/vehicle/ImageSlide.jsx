@@ -3,7 +3,7 @@ import Slider from "react-slick";
 function ImageSlide(props) {
   const vehicle = props.vehicle;
   return (
-    <div className="vehicle__header">,
+    <div className="vehicle__header">
       <Slider
         dots={true}
         infinite={true}
@@ -11,7 +11,7 @@ function ImageSlide(props) {
         speed={800}
         responsive={[
           {
-            breakpoint: 1200,
+            breakpoint: 1000,
             settings: {
               slidesToShow: 2,
             },
@@ -27,7 +27,7 @@ function ImageSlide(props) {
         {vehicle.images.map((item, index) => {
           return (
             <div className="image-wrapper">
-              <img src={item.link} alt="vl" className="d-block w-100" />
+              <img src={"http://127.0.0.1:8000/"+item.link} alt="vl" className="d-block w-100" />
             </div>
           );
         })}

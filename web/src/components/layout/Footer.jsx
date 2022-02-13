@@ -40,9 +40,9 @@ function Footer() {
       <Container>
         <Row>
           <Col xs={6} lg={3}>
-            <div>
+            {/* <div>
               <img src={logofull} alt="logo" width={145} />
-            </div>
+            </div> */}
             <div>
               <a href="facebook.com">
                 <FaFacebookF className="me-3" />

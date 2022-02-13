@@ -14,7 +14,7 @@ const vehicle = {
     limitEnable: false,
     limitDistance: 100,
     location: null,
-    mainImg: "",
+    mainImg: null,
     model: { id: 0 },
     originPrice: 0,
     outLimitFee: 1000,

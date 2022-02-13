@@ -69,11 +69,11 @@ export default function RegisterVehiclePage(props) {
           const id = res.data.id;
           const name = `vehicle${id}-`;
           images.forEach((item, index) => {
-            const file = new File([item.file], name + index);
-            formData.append("files", file);
+            const file = new File([item.file], name + index + '.jpg');
+            formData.append("files[]", file);
           });
           vehicleApi.uploadMultipleFiles(formData).then((res) => {
-            console.log(res);
+            console.log(res); 
           });
           props.history.push("/myvehicles");
         });
@@ -83,8 +83,9 @@ export default function RegisterVehiclePage(props) {
           const id = res.data.id;
           const name = `vehicle${id}-`;
           images.forEach((item, index) => {
-            const file = new File([item.file], name + index);
-            formData.append("files", file);
+            const file = new File([item.file], name + index + '.jpg');
+            formData.append("files[]", file);
+            console.log(file);
           });
           vehicleApi.uploadMultipleFiles(formData).then((res) => {
             console.log(res);

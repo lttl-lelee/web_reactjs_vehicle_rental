@@ -3,8 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\VehicleController; 
-use App\Http\Controllers\BookingController; 
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ImageController;
 //đâ
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +26,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/getInfo', [AuthController::class,'show']);
     Route::get('/getMyBooking', [BookingController::class,'show']);
     Route::get('/getMyRequestBooking', [BookingController::class,'show']);
-    //cần login mới cho xem, thì để trong này, ví dụ: xem profile, edit,.. 
+    //cần login mới cho xem, thì để trong này, ví dụ: xem profile, edit,..
 
     Route::post('/register/car', [VehicleController::class,'register_car']);
     Route::get('/MyVehicles', [VehicleController::class,'MyVehicles']);
     Route::post('/register/bike', [VehicleController::class,'register_bike']);
+    // Upload Multiple Images
+    Route::post('uploadMultipleFiles', [ImageController::class, 'uploadImages']);
+
     Route::get('/getVehicle', [VehicleController::class, 'getVehicle']);
-    Route::post('/uploadMultipleFiles', [MutiUpload::class,'uploadMultipleFiles']);
 });
 Route::get('/getBooking/{id}', [BookingController::class, 'GetBooking']);
 Route::get('/getVehicle', [VehicleController::class, 'getVehicle']);
@@ -49,3 +52,7 @@ Route::get('/getNoti', function () {
 });
 
 Route::get('/getBrands', [VehicleController::class, 'getBrands']);
+
+
+
+

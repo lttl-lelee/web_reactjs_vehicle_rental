@@ -4,7 +4,7 @@ import DescriptionVehicle from "components/vehicle/DescriptionVehicle";
 import HeaderVehicle from "components/vehicle/HeaderVehicle";
 import ImageSlide from "components/vehicle/ImageSlide";
 import NoDriverSideBar from "components/vehicle/NoDriverSideBar";
-import RatingVehicle from "components/vehicle/RatingVehicle";
+// import RatingVehicle from "components/vehicle/RatingVehicle";
 import queryString from "query-string";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
@@ -54,7 +54,7 @@ export default function BikePage(props) {
                 <Col>
                   <HeaderVehicle vehicle={bike} className="d-none d-lg-block" />
                 </Col>
-                <Col xs={4}>
+                {/* <Col xs={4}>
                   {logged ? (
                     <Button onClick={handleUpdateLike}>
                       {!like ? (
@@ -68,13 +68,13 @@ export default function BikePage(props) {
                       )}
                     </Button>
                   ) : null}
-                </Col>
+                </Col> */}
               </Row>
 
               <div className="desc">
                 <DescriptionVehicle vehicle={bike} type="bike" />
               </div>
-              <RatingVehicle vehicle={bike} />
+              {/* <RatingVehicle vehicle={bike} /> */}
             </Col>
             <Col
               lg={5}

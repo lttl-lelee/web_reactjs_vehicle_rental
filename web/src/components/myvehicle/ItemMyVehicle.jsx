@@ -8,6 +8,7 @@ import StarRatings from "react-star-ratings";
 
 export default function ItemMyVehicle(props) {
   const vehicle = props.item;
+  const images = vehicle.images;
   const url = vehicle.bikeType === "bike" ? "/bike" : vehicle.driver ? "/withdriver" : "/car";
   const rates = vehicle.rating || [];
   const totalRate = rates.reduce((ini, item) => {
@@ -24,7 +25,8 @@ export default function ItemMyVehicle(props) {
           <div className="img-item">
             <div className="img-item-main">
               <div className="image-wrapper">
-                <img src={vehicle.mainImg}></img>
+                {/* <img src={vehicle.mainImg}></img> */}
+                <img src={"http://127.0.0.1:8000/"+images[0]?.link}></img>
               </div>
               <span className="img-status">
                 {vehicle.actived ? "Đang hoạt động" : "Đang chờ duyệt"}
@@ -35,7 +37,7 @@ export default function ItemMyVehicle(props) {
         <Col lg={6}>
           <div className="content-item">
             <div className="content-item-desc">
-              <div className="name-vehicle">{vehicle.category.name}</div>
+              <div className="name-vehicle">{vehicle?.category?.name}</div>
               <div className="content-item-rating">
                 <div className="content-item-rating-star">
                   <StarRatings
