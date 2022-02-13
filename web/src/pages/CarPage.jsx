@@ -50,14 +50,14 @@ export default function CarPage() {
         <Loading />
       ) : (
         <div className="vehicle">
-          {/* <ImageSlide vehicle={car} /> */}
+          <ImageSlide vehicle={car} />
           <Row className="vehicle__body container">
             <Col lg={7} className="vehicle__body-content order-2 order-lg-1">
               <Row>
                 <Col>
                   {/* <HeaderVehicle vehicle={car} className="d-none d-lg-block" /> */}
                 </Col>
-                <Col xs={4}>
+                {/* <Col xs={4}>
                   {logged ? (
                     <Button onClick={handleUpdateLike}>
                       {!like ? (
@@ -71,7 +71,7 @@ export default function CarPage() {
                       )}
                     </Button>
                   ) : null}
-                </Col>
+                </Col> */}
               </Row>
               <div className="desc">
                 <DescriptionVehicle vehicle={car} type="car" />

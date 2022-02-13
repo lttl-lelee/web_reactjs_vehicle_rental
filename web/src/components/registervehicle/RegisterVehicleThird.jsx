@@ -43,6 +43,8 @@ export default function RegisterVehicleThird() {
     if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
       setImage(window.URL.createObjectURL(file));
+      // setImage(file);
+      console.log("Check Image:", file);
     }
   };
 

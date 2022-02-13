@@ -10,8 +10,7 @@ export default function BandRoll() {
         <div className="d-flex justify-content-around">
             <div>
                 <div className="bandrollContent">
-                    <h1>OURDRIVE</h1>
-                    <h2>Dịch vụ thuê xe chất lượng hàng đầu</h2>
+                    <h1>Dịch vụ thuê xe chất lượng hàng đầu</h1>
                 </div>
             </div>
             {/* <div className="d-none d-lg-block mt-3">

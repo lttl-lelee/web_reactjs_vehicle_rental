@@ -55,7 +55,7 @@ export default function WithDriverPage(props) {
                 <Col>
                   <HeaderVehicle vehicle={car} className="d-none d-lg-block" />
                 </Col>
-                <Col xs={4}>
+                {/* <Col xs={4}>
                   {logged ? (
                     <Button onClick={handleUpdateLike}>
                       {!like ? (
@@ -69,10 +69,10 @@ export default function WithDriverPage(props) {
                       )}
                     </Button>
                   ) : null}
-                </Col>
+                </Col> */}
               </Row>
               <div className="desc">
-                <DescriptionVehicle vehicle={car} type="car" />
+                {/* <DescriptionVehicle vehicle={car} type="car" /> */}
               </div>
               <RatingVehicle vehicle={car} />
             </Col>

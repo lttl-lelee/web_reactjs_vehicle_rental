@@ -51,8 +51,8 @@ function Header() {
       <Navbar id="header" bg="dark" variant="dark" className="px-3">
         <Link className="navbar-brand" to="/">
           <img
-            src={logo}
-            alt="logo"
+            src={"assets/images/logo.png"}
+            alt="Home"
             style={{ height: "55px", position: "absolute", top: "5px" }}
           />
         </Link>

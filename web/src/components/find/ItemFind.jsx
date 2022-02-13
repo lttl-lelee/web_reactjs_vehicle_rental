@@ -25,7 +25,7 @@ const ItemFind = (props) => {
         <Link to={url + `?id=${vehicle?.id}`}>
           <div className="item__img">
             <div className="item__img-main">
-              <img src={vehicle?.mainImg} alt="" />
+              <img src={"http://127.0.0.1:8000/"+vehicle?.images[0].link} alt="No" />
             </div>
             <div className="item__img-infor">
               {vehicle?.driver ? (

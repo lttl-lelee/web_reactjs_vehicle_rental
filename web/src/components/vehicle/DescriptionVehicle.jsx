@@ -11,7 +11,6 @@ import { GrLocation } from "react-icons/gr";
 import GoogleMapReact from "google-map-react";
 function DescriptionVehicle(props) {
   const vehicle = props.vehicle;
-  console.log(vehicle);
   const user = vehicle.users;
   const type = props.type;
   return (
