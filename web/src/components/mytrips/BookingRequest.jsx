@@ -228,17 +228,17 @@ export default function BookingRequest(props) {
                   <p className="fw-bold fs-5 text-dark">
                     {booking.vehicle?.category.name}
                   </p>
-                  <p>Bắt đầu: {formatDateTime(booking.startTime, true)}</p>
-                  <p>Kết thúc: {formatDateTime(booking.endTime, true)}</p>
+                  <p>Bắt đầu: {formatDateTime(booking.start_time, true)}</p>
+                  <p>Kết thúc: {formatDateTime(booking.end_time, true)}</p>
                 </div>
               </div>
             </Col>
             <Col lg={5}>
               <p>Người thuê: {user.fullName}</p>
               <p>SĐT người thuê: {user.phone}</p>
-              <span className="text--link" onClick={() => setOpenModel(true)}>
+              {/* <span className="text--link" onClick={() => setOpenModel(true)}>
                 Xem đánh giá người thuê
-              </span>
+              </span> */}
             </Col>
           </Row>
           <div className="text-center">
@@ -286,7 +286,7 @@ export default function BookingRequest(props) {
           </div>
         ) : null}
       </div>
-      {openModal ? (
+      {/* {openModal ? (
         <Modal show={true} onHide={handleCloseModal}>
           <Modal.Header closeButton>
             <Modal.Title>Các đánh giá về khách thuê</Modal.Title>
@@ -297,7 +297,7 @@ export default function BookingRequest(props) {
             }):"Không có đánh giá nào"}
           </Modal.Body>
         </Modal>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

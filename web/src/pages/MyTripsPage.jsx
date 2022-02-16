@@ -13,14 +13,13 @@ export default function MyTripsPage() {
   const [statusRequest, setStatusRequest] = useState("loading");
   useEffect(() => {
     bookingApi.getMyBooking().then((res) => {
-      console.log(res);
-      // setBooking(res);
+      setBooking(res.data);
       // setStatus("idle");
     });
-    bookingApi.getMyRequestBooking().then((res) => {
-      setRequestBooking(res);
-      setStatusRequest("idle");
-    });
+    // bookingApi.getMyRequestBooking().then((res) => {
+    //   setRequestBooking(res);
+    //   setStatusRequest("idle");
+    // });
   }, []);
   return (
     <Container className="page-content">
@@ -35,7 +34,7 @@ export default function MyTripsPage() {
                 }):null}
             </Row>
           </Tab>
-          <Tab eventKey="self-driving" title="Chuyến Cho Thuê">
+          {/* <Tab eventKey="self-driving" title="Chuyến Cho Thuê">
             <Row className="items">
               {requestBooking.length?requestBooking.map((item, index) => {
                   return (
@@ -43,7 +42,7 @@ export default function MyTripsPage() {
                   );
                 }):null}
             </Row>
-          </Tab>
+          </Tab> */}
         </Tabs>
       </div>
     </Container>

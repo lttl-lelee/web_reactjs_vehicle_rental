@@ -189,12 +189,12 @@ function NoDriverSideBar(props) {
       </FormGroup>
       <FormGroup className="mb-3">
         <FormLabel className="lable-form">Bảo hiểm</FormLabel>
-        <a href="" className="line-insur">
+        {/* <a href="" className="line-insur">
           <span>
             <AiOutlineFileProtect /> Chuyến đi được bảo hiểm bởi Pjico{" "}
           </span>
-        </a>
-        <a href="">Tìm hiểu thêm</a>
+        </a> */}
+        {/* <a href="">Tìm hiểu thêm</a> */}
       </FormGroup>
       <FormGroup className="mb-3">
         <FormLabel className="lable-form">Chi tiết giá</FormLabel>
@@ -233,11 +233,11 @@ function NoDriverSideBar(props) {
             </span>
           </div>
           <br />
-          {logged.data ? (
+          {/* {logged.data ? (
             <Row className="mb-3 order-1 position-relative">
               <PromotionForm />
             </Row>
-          ) : null}
+          ) : null} */}
           <Button className="mt-5" onClick={handleSubmit}>
             Đặt xe
           </Button>

@@ -8,6 +8,7 @@ import StarRatings from "react-star-ratings";
 
 const ItemMyBooking = (props) => {
   const booking = props.booking;
+  // console.log(booking.vehicle.category.name);  
   return (
     <div className="booking__item">
       <Link className="link--text" to={`booking?id=${booking.id}`}>
@@ -15,12 +16,12 @@ const ItemMyBooking = (props) => {
         <div className="booking__item--container">
           <div className="booking__item--img">
             <div className="image-wrapper">
-              <img src={booking.vehicle.mainImg} alt="" />
+              <img src={"http://127.0.0.1:8000/"+ booking.vehicle.images[0].link} alt="" />
             </div>
           </div>
           <div className="text-muted">
-            <p>Bắt đầu: {formatDateTime(booking.startTime, true)}</p>
-            <p>Kết thúc: {formatDateTime(booking.endTime, true)}</p>
+            <p>Bắt đầu: {formatDateTime(booking.start_time, true)}</p>
+            <p>Kết thúc: {formatDateTime(booking.end_time, true)}</p>
             <p className="fw-bold fs-5 text-dark">
               Tổng tiền: {formatMoneyK(booking.amount)}
             </p>

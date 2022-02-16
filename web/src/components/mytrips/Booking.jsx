@@ -12,6 +12,7 @@ import StarRatings from "react-star-ratings";
 
 export default function Booking(props) {
   const booking = props.booking;
+   console.log(booking);
   const status = booking.status;
   const vehicle = booking.vehicle;
   const deposit = Math.round((30 * booking.amount) / 100000) * 1000;
