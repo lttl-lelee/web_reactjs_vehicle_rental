@@ -13,7 +13,7 @@ import { store as noti } from "react-notifications-component";
 import StarRatings from "react-star-ratings";
 
 export default function BookingRequest(props) {
-  const booking = props.booking;
+  const booking = props.booking.data[0];
   const status = booking.status;
   const vehicle = booking.vehicle;
   const user = booking.user;
@@ -82,7 +82,7 @@ export default function BookingRequest(props) {
         <Row>
           <Col lg={3} className="register-heading-tab">
             <div
-              className={`tab-number ${status === "Đang chờ" ? "active" : ""}`}
+              className={`tab-number ${status == 0 ? "active" : ""}`}
             >
               1
             </div>
@@ -93,7 +93,7 @@ export default function BookingRequest(props) {
           </Col>
           <Col lg={3} className="register-heading-tab">
             <div
-              className={`tab-number ${status === "Đã duyệt" ? "active" : ""}`}
+              className={`tab-number ${status == 1 ? "active" : ""}`}
             >
               2
             </div>
@@ -105,9 +105,9 @@ export default function BookingRequest(props) {
           <Col lg={3} className="register-heading-tab">
             <div
               className={`tab-number ${
-                status === "Đã cọc" ||
-                status === "Đã giao xe" ||
-                status === "Đã nhận xe"
+                status == 2 ||
+                status == 3 ||
+                status == 4
                   ? "active"
                   : ""
               }`}
@@ -122,7 +122,7 @@ export default function BookingRequest(props) {
           <Col lg={3} className="register-heading-tab">
             <div
               className={`tab-number ${
-                status === "Hoàn thành" || status === "Đã trả xe"
+                status == 5 || status === "Đã trả xe"
                   ? "active"
                   : ""
               }`}
@@ -221,12 +221,12 @@ export default function BookingRequest(props) {
               <div className="booking__item--container">
                 <div className="booking__item--img">
                   <div className="image-wrapper">
-                    <img src={booking.vehicle.mainImg} alt="" />
+                    <img src={"http://127.0.0.1:8000/"+ vehicle?.images[0].link} alt="" />
                   </div>
                 </div>
                 <div className="text-muted">
                   <p className="fw-bold fs-5 text-dark">
-                    {booking.vehicle.model.name}
+                    {booking.vehicle?.category.name}
                   </p>
                   <p>Bắt đầu: {formatDateTime(booking.startTime, true)}</p>
                   <p>Kết thúc: {formatDateTime(booking.endTime, true)}</p>
