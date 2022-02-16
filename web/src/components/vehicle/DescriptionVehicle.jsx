@@ -48,49 +48,6 @@ function DescriptionVehicle(props) {
           {vehicle.description}
         </Col>
       </Row>
-      {type === "car" ? (
-        <Row className="desc-item">
-          <Col lg={3} className="desc-title">
-            TÍNH NĂNG
-          </Col>
-          <Col lg={9} className="desc-content">
-            <Row>
-              <Col lg={6}>
-                <span>
-                  <i id="icon-vehicle">
-                    <FaBluetooth />
-                  </i>
-                  Bluetooth
-                </span>
-              </Col>
-              <Col lg={6}>
-                <span>
-                  <i id="icon-vehicle">
-                    <RiGpsFill />
-                  </i>
-                  Định vị GPS
-                </span>
-              </Col>
-              <Col lg={6}>
-                <span>
-                  <i id="icon-vehicle">
-                    <GiUsbKey />
-                  </i>
-                  Khe cắm USB
-                </span>
-              </Col>
-              <Col lg={6}>
-                <span>
-                  <i id="icon-vehicle">
-                    <HiVideoCamera />
-                  </i>
-                  Camera lùi
-                </span>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      ) : null}
       <Row className="desc-item">
         <Col lg={3} className="desc-title">
           GIẤY TỜ THUÊ XE (BẢN GỐC)
@@ -164,62 +121,9 @@ function DescriptionVehicle(props) {
               <a href="/account" id="owner-name">
                 <h4>{user.fullName}</h4>
               </a>
-              <span className="star-ratings">
-                {/* <StarRatings
-                  rating={
-                    user.ratedByOther.length
-                      ? user.ratedByOther.reduce((ini, item) => {
-                          return ini + item.numStar;
-                        }, 0) / user.ratedByOther.length
-                      : 0
-                  }
-                  starRatedColor="yellow"
-                  numberOfStars={5}
-                  starDimension="20px"
-                  starSpacing="1px"
-                /> */}
-              </span>
               <div className="mt-3">SĐT: {user.phone}</div>
             </Col>
           </Row>
-          {/* {user.responseRate.totalRequest?
-            <>
-              <div className="response-desc">
-                <p>Tỉ lệ phản hồi</p>
-                <span className="rate">
-                  {
-                  // @ts-ignore
-                  (
-                    user.responseRate.totalResponse /
-                    user.responseRate.totalRequest
-                  ).toFixed(1) * 100}
-                  %
-                </span>
-              </div>
-              <div className="response-desc">
-                <p>Thời gian phản hồi</p>
-                <span className="rate">
-                  {(
-                    (user.responseRate.totalHoursResponse/600000) /
-                    user.responseRate.totalResponse
-                  ).toFixed(2)}{" "}
-                  phút
-                </span>
-              </div>
-              <div className="response-desc">
-                <p>Tỉ lệ đồng ý</p>
-                <span className="rate">
-                  {
-// @ts-ignore
-                  (
-                    user.responseRate.totalAgree /
-                    user.responseRate.totalResponse
-                  ).toFixed(1) * 100}
-                  %
-                </span>
-              </div>
-            </>:null
-          } */}
         </Col>
       </Row>
       <Row className="desc-item">

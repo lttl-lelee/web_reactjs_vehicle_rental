@@ -10,7 +10,8 @@ const ItemFind = (props) => {
   const data = props.data;
   const vehicle = data;
   const type = props.type;
-  const url = type === "bike" ? "/bike" : type === "car" ? "car" : "withdriver";
+  //const url = type === "bike" ? "/bike" : type === "car" ? "car" : "withdriver";
+  const url = "car";
   // const rates = vehicle?.rating || [];
   // const totalRate = rates.reduce((ini, item) => {
   //   return ini + item.numStar;

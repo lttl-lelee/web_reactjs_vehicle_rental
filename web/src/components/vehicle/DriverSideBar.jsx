@@ -21,6 +21,8 @@ import { NOTI } from "constants/index";
 import { store as noti } from "react-notifications-component";
 import { showLogin } from "app/slice/userSlice";
 import { BsArrowLeftShort } from "react-icons/bs";
+import dateFormat from "dateformat";
+import { useHistory } from "react-router";
 function DriverSideBar(props) {
   const vehicle = props.vehicle;
   const searched = useSelector((state) => state.searched).data;
@@ -32,7 +34,7 @@ function DriverSideBar(props) {
   const discount = booking.data.promotion ? booking.data.promotion.discount : 0;
   const totalWithDiscount =
   total2 - Math.round((total2 * discount) / 100000) * 1000;
-
+const history = useHistory();
   const handleChangeStartDate = (evt) => {
     store.dispatch(changeStartDate(evt.target.value));
   };
@@ -50,14 +52,14 @@ function DriverSideBar(props) {
         if (res) {
           bookingApi
             .createBooking({
-              startTime: dateTimeToLong(searched.startDate, searched.startTime),
-              endTime: timeToLong(searched.startDate, searched.startTime,+searched.time),
+              startTime: dateFormat(new Date(`${searched.startDate} ${searched.startTime}`), "yyyy-mm-dd H:m:s"),
+              endTime: dateFormat(new Date(`${searched.endDate} ${searched.endTime}`), "yyyy-mm-dd H:m:s"),
               amount: totalWithDiscount,
               promotion: booking.data.promotion,
               vehicleId: vehicle.id,
             })
             .then((res) => {
-              props.history.push("/booking?id=" + res.id);
+              history.push("/booking?id=" + res.data.id);
             });
           noti.addNotification({
             ...NOTI,

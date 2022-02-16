@@ -54,27 +54,11 @@ export default function BikePage(props) {
                 <Col>
                   <HeaderVehicle vehicle={bike} className="d-none d-lg-block" />
                 </Col>
-                {/* <Col xs={4}>
-                  {logged ? (
-                    <Button onClick={handleUpdateLike}>
-                      {!like ? (
-                        <>
-                          Yêu thích <MdFavoriteBorder className="icon" />
-                        </>
-                      ) : (
-                        <>
-                          Bỏ thích <MdFavorite className="icon" />
-                        </>
-                      )}
-                    </Button>
-                  ) : null}
-                </Col> */}
               </Row>
 
               <div className="desc">
                 <DescriptionVehicle vehicle={bike} type="bike" />
               </div>
-              {/* <RatingVehicle vehicle={bike} /> */}
             </Col>
             <Col
               lg={5}

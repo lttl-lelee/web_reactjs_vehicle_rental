@@ -52,12 +52,12 @@ const GPLX = (props) => {
           onSubmit={(values) => {
             userApi.updateDrivingLicense({ ...values });
             let data = { ...values };
-            data.imageLink=gplx.imageLink;
+            data.image_link=gplx.image_link;
             data.confirmed=false;
             if (image) {
               const callback = (file, link) => {
                 userApi.updateGPLX(file);
-                data.imageLink = link;
+                data.image_link = link;
               };
               generateDownload(image, croppedArea, callback);
             }

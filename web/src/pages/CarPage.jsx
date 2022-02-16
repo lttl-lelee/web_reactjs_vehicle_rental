@@ -55,34 +55,18 @@ export default function CarPage() {
             <Col lg={7} className="vehicle__body-content order-2 order-lg-1">
               <Row>
                 <Col>
-                  {/* <HeaderVehicle vehicle={car} className="d-none d-lg-block" /> */}
+                  <HeaderVehicle vehicle={car} className="d-none d-lg-block" />
                 </Col>
-                {/* <Col xs={4}>
-                  {logged ? (
-                    <Button onClick={handleUpdateLike}>
-                      {!like ? (
-                        <>
-                          Yêu thích <MdFavoriteBorder className="icon" />
-                        </>
-                      ) : (
-                        <>
-                          Bỏ thích <MdFavorite className="icon" />
-                        </>
-                      )}
-                    </Button>
-                  ) : null}
-                </Col> */}
               </Row>
               <div className="desc">
                 <DescriptionVehicle vehicle={car} type="car" />
               </div>
-              {/* <RatingVehicle vehicle={car} /> */}
             </Col>
             <Col
               lg={5}
               className="vehicle__body-sidebar order-1 order-lg-2 mt-5 mt-lg-0"
             >
-              {/* <NoDriverSideBar vehicle={car} /> */}
+              <NoDriverSideBar vehicle={car} />
             </Col>
           </Row>
         </div>

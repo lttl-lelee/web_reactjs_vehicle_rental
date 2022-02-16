@@ -40,9 +40,9 @@ export default function MainFeature() {
         <Row>
             <Col className="mt-5">
                 <div className="main-feature">
-                    <div className="title-feature">
+                    {/* <div className="title-feature">
                         <h4>Tính Năng Nổi Bật</h4>
-                    </div>
+                    </div> */}
                     <div className="image-feature">
                         <Slider
                             // @ts-ignore

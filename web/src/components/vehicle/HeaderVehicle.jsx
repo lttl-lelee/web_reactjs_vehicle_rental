@@ -3,18 +3,18 @@ import StarRatings from "react-star-ratings"
 
 function HeaderVehicle(props) {
   const vehicle = props.vehicle;
-  const numRate = vehicle.rating.length
-    ? vehicle.rating.reduce((ini, item) => {
-        return ini + item.numStar;
-      }, 0) / vehicle.rating.length
-    : 0;
+  // const numRate = vehicle.rating.length
+  //   ? vehicle.rating.reduce((ini, item) => {
+  //       return ini + item.numStar;
+  //     }, 0) / vehicle.rating.length
+  //   : 0;
   return (
     <div className={`heading ${props.className}`}>
-      <h1 className="title-vehicle">{vehicle.model.name}</h1>
+      <h1 className="title-vehicle">{vehicle.category.name}</h1>
       <div className="status-vehicle">
         <span className="star-ratings">
           <StarRatings
-            rating={numRate}
+            rating={5}
             starRatedColor="yellow"
             numberOfStars={5}
             starDimension="20px"
@@ -24,10 +24,10 @@ function HeaderVehicle(props) {
         <span>---------</span>
         <span className="number-trips">{vehicle.numBooking} chuyến</span>
       </div>
-      <div className="footer-vehicle">
+      {/* <div className="footer-vehicle">
         <span>{vehicle.transmission||vehicle.bikeType}</span>
         {vehicle.deliveryEnable ? <span>Giao xe tận nơi</span> : null}
-      </div>
+      </div> */}
     </div>
   );
 }

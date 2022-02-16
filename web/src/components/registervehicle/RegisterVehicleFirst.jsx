@@ -416,65 +416,7 @@ export default function RegisterVehicleFirst() {
                     defaultValue={register.data.description}
                   ></textarea>
                 </FormGroup>
-                {register.type !== "bike" ? (
-                  <FormGroup className="mb-3">
-                    <FormLabel>Tính năng</FormLabel>
-                    <Row>
-                      <Col lg={6} className="mb-3">
-                        <FormCheckInput
-                          type="checkbox"
-                          onChange={handleChangeBluetooth}
-                          defaultChecked={register.data.bluetooth}
-                        />
-                        <span>
-                          <i className="icon-tools">
-                            <FaBluetooth />
-                          </i>
-                          Bluetooth
-                        </span>
-                      </Col>
-                      <Col lg={6} className="mb-3">
-                        <FormCheckInput
-                          type="checkbox"
-                          onChange={handleChangeGps}
-                          defaultChecked={register.data.gps}
-                        />
-                        <span>
-                          <i className="icon-tools">
-                            <RiGpsFill />
-                          </i>
-                          Định vị GPS
-                        </span>
-                      </Col>
-                      <Col lg={6} className="mb-3">
-                        <FormCheckInput
-                          type="checkbox"
-                          onChange={handleChangeUsb}
-                          defaultChecked={register.data.usb}
-                        />
-                        <span>
-                          <i className="icon-tools">
-                            <GiUsbKey />
-                          </i>
-                          Khe cắm USB
-                        </span>
-                      </Col>
-                      <Col lg={6} className="mb-3">
-                        <FormCheckInput
-                          type="checkbox"
-                          onChange={handleChangeReverseCamera}
-                          defaultChecked={register.data.reverseCamera}
-                        />
-                        <span>
-                          <i className="icon-tools">
-                            <HiVideoCamera />
-                          </i>
-                          Camera lùi
-                        </span>
-                      </Col>
-                    </Row>
-                  </FormGroup>
-                ) : null}
+
               </>
             ) : null}
           </Form>
